@@ -23,7 +23,7 @@ public class ProductsPage {
     @FindBy(id ="add-to-cart-button")
     WebElement add_to_cart_button;
 
-    public void search_and_add_products_to_cart(String[] products){
+    public CartPage search_and_add_products_to_cart(String[] products){
         for(String product : products){
             searchbox.sendKeys(product);
             search_button.click();
@@ -33,6 +33,8 @@ public class ProductsPage {
             }
             add_to_cart_button.click();
         }
+        CartPage cartPage = new CartPage(driver);
+        return cartPage;
     }
 
 }

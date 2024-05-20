@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.example.page_objects.Login_page;

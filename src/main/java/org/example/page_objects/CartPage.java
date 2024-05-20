@@ -1,6 +1,5 @@
 package org.example.page_objects;
 
-import dev.failsafe.internal.util.Assert;
 import org.apache.hc.core5.util.Asserts;
 import org.example.AbstractComponents.AbstractComponent;
 import org.openqa.selenium.By;
@@ -8,8 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import java.util.Objects;
 
 public class CartPage extends AbstractComponent {
     WebDriver driver;
@@ -34,7 +31,7 @@ public class CartPage extends AbstractComponent {
     @FindBy(className = "a-alert-heading")
     WebElement confirmation_text_element;
 
-    public void submit_order(int products_count,String expected_username, String expected_confirmation_text){
+    public OrderCancellationPage submit_order(int products_count, String expected_username, String expected_confirmation_text){
 
         AbstractComponent.element_tobe_clickable(cart_icon_wait);
 
@@ -54,6 +51,8 @@ public class CartPage extends AbstractComponent {
         //confirmation message check
         String actual_confirmation_text = confirmation_text_element.getText();
         Asserts.check(true,actual_confirmation_text,expected_confirmation_text);
+        OrderCancellationPage orderCancellationPage = new OrderCancellationPage(driver);
+        return orderCancellationPage;
     }
 
 
