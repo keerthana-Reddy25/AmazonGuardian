@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests">
+    <test thread-count="3" name="Login_error_validations_test">
+        <classes>
+            <class name="org.example.Tests.Login_Error_Validation_Test">
+                <methods>
+                    <include name="login_error_validations"/>
+                    <include name="UI_checks"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+<!--    <test name ="StandAloneTest">-->
+<!--        <classes>-->
+
+<!--            <class name="org.example.Tests.StandAloneTest">-->
+<!--                <methods>-->
+<!--                    <include name="main"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+    <test thread-count="3" name = "submit_order_test">
+        <classes>
+            <class name="org.example.Tests.SubmitOrderTest">
+                <methods>
+                    <include name="submit_order"/>
+                </methods>
+            </class>
+        </classes>
+</test>
+
+</suite>

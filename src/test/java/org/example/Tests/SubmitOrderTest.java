@@ -8,6 +8,7 @@ import org.example.page_objects.OrderCancellationPage;
 import org.example.page_objects.ProductsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -17,7 +18,7 @@ public class SubmitOrderTest extends BaseTest {
 
 
     @Test
-            public void submit_order() throws IOException {
+    public void submit_order() throws IOException {
 
         //Amazon Login open  -Login Page -1
 //        Login_page login_page = launch_application();
@@ -46,6 +47,12 @@ public class SubmitOrderTest extends BaseTest {
         orderCancellationPage.cancel_orders(expected_cancel_msg);
         //Orders cancellation Page End
     }
+
+//    @DataProvider
+//    public void getData(){
+//        new Object[][]{[]}
+//
+//    }
 
 
 

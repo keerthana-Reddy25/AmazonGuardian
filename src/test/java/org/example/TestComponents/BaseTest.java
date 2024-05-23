@@ -18,9 +18,17 @@ public class BaseTest {
 
     public  WebDriver driver;
     public Login_page login_page;
+
+    @BeforeMethod
+    public Login_page setup() throws IOException {
+        driver = initializeDriver();
+        login_page = new Login_page(driver);
+        launch_application();
+        return login_page;
+
+    }
     public WebDriver initializeDriver() throws IOException {
         Properties properties = new Properties();
-
         FileInputStream fileInputStream = new FileInputStream(System.getProperty("user.dir")+"//src//main//java//org//example//Resources//GlobalData.properties");
         properties.load(fileInputStream);
         String browser_name = properties.getProperty("browser");
@@ -44,16 +52,12 @@ public class BaseTest {
         return driver;
 
     }
-    @BeforeMethod
-    public Login_page launch_application() throws IOException {
-        driver = initializeDriver();
-        login_page = new Login_page(driver);
+    public void launch_application() {
         login_page.go_to_application();
-        return login_page;
-
     }
+
     @AfterMethod
     public void tear_down(){
-        driver.close();
+        driver.quit();
     }
 }

@@ -30,9 +30,16 @@ public class Login_page {
     @FindBy(className = "a-list-item")
     WebElement error_message_element;
 
+    @FindBy(id = "createAccountSubmit")
+    WebElement create_account_button;
 
-    public ProductsPage login_application(String user_email, String password){
+
+    public void go_to_application(){
+        driver.get("https://www.amazon.com");
         account_signIn_link.click();
+    }
+    public ProductsPage login_application(String user_email, String password){
+
         user_signIn_email.sendKeys(user_email);
         continue_signIn.click();
         password_signIn.sendKeys(password);
@@ -40,14 +47,18 @@ public class Login_page {
         ProductsPage productsPage = new ProductsPage(driver);
         return productsPage;
     }
-    public void go_to_application(){
-        driver.get("https://www.amazon.com");
-    }
+
 
     public String getErrorMessage(){
         wait_for_element_to_be_appear(error_message_element);
         String error_msg = error_message_element.getText();
         return error_msg;
+    }
+
+    public String get_create_amazon_account_button_text(){
+        String create_account_button_text = create_account_button.getText();
+        return create_account_button_text;
+
     }
 
 
