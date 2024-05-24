@@ -1,0 +1,8 @@
+[
+  {
+    "username": "keerthanareddy2506@gmail.com",
+    "password": "invalidPass",
+    "expectedErrorMessage": "Invalid username or password",
+    "expectedAmazonCreateAccountBtnText": "Create your Amazon account"
+  }
+  ]
