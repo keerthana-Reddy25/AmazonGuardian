@@ -2,9 +2,7 @@ package org.example.page_objects;
 
 import org.apache.hc.core5.util.Asserts;
 import org.example.AbstractComponents.AbstractComponent;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -38,9 +36,16 @@ public class CartPage extends AbstractComponent {
         cart_icon.click();
         String cart_count = cart_count_text.getText();
         if(cart_count.contains(String.valueOf(products_count))){
-            proceed_to_checkout_button.click();
+                proceed_to_checkout_button.click();
         }
-        checkout_button.click();
+        try{
+            checkout_button.click();
+        }
+        catch(StaleElementReferenceException e){
+           // driver.navigate().refresh();
+            wait_for_element_to_be_appear(checkout_button);
+            checkout_button.click();
+        }
 
         //username check
 

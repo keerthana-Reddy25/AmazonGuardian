@@ -7,13 +7,14 @@
     "expectedConfirmationText": "Order placed, thanks!",
     "expectedCancelMsg": "This order has been cancelled."
   },
-  {
-    "username": "keerthanareddy2506@gmail.com",
-    "password": "KeerthiReddy@25",
-    "products": ["french vanilla", "yupik", "shampoo"],
-    "expectedUsername": "Keerthana chilakala",
-    "expectedConfirmationText": "Order placed, thanks!",
-    "expectedCancelMsg": "This order has been cancelled."
-  }
+    {
+      "username": "keerthanareddy2506@gmail.com",
+      "password": "KeerthiReddy@25",
+      "products": ["french vanilla", "yupik", "shampoo"],
+      "expectedUsername": "Keerthana chilakala",
+      "expectedConfirmationText": "Order placed, thanks!",
+      "expectedCancelMsg": "This order has been cancelled."
+    }
+
 
 ]

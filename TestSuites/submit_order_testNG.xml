@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="org.example.TestComponents.Listeners">
+
+        </listener>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="SubmitOrderTest">
+        <classes>
+            <class name="org.example.Tests.SubmitOrderTest">
+                <methods>
+                    <include name="submit_order"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

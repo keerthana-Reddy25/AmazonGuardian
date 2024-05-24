@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite" parallel="tests">
+    <listeners>
+        <listener class-name="org.example.TestComponents.Listeners">
+
+        </listener>
+    </listeners>
     <test thread-count="3" name="Login_error_validations_test">
         <classes>
             <class name="org.example.Tests.Login_Error_Validation_Test">

@@ -9,6 +9,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
@@ -43,9 +44,14 @@ public class BaseTest {
         properties.load(fileInputStream);
         String browser_name = properties.getProperty("browser");
 
-        if(browser_name.equalsIgnoreCase("chrome")){
+        if(browser_name.contains("chrome")){
+            ChromeOptions options = new ChromeOptions();
             WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
+
+            if(browser_name.contains("headless")){
+                options.addArguments("headless");
+            }
+            driver = new ChromeDriver(options);
 
 
         } else if (browser_name.equalsIgnoreCase("firefox")) {

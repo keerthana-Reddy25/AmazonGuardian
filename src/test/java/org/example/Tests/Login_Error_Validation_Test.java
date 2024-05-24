@@ -1,6 +1,7 @@
 package org.example.Tests;
 
 import org.example.TestComponents.BaseTest;
+import org.example.TestComponents.Retry;
 import org.example.page_objects.Login_page;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -23,7 +24,7 @@ public class Login_Error_Validation_Test extends BaseTest {
         Assert.assertEquals(login_page.getErrorMessage(),"Your password is incorrect");
 
     }
-    @Test(dataProvider = "getData")
+    @Test(dataProvider = "getData",retryAnalyzer = Retry.class)
     public void UI_checks(HashMap<String,String> dataset) throws IOException {
 
         //check whether the text "Create your Amazon account" visible on GUI

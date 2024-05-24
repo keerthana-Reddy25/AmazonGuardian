@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class OrderCancellationPage extends AbstractComponent {
     WebDriver driver;
@@ -34,7 +35,13 @@ public class OrderCancellationPage extends AbstractComponent {
     WebElement cancel_msg_element;
 
     public void cancel_orders(String expected_cancel_msg){
-        orders_link_element.click();
+        try{
+            orders_link_element.click();
+        }
+        catch(NoSuchElementException e){
+            wait_for_element_to_be_appear(orders_link_element);
+            orders_link_element.click();
+        }
         view_or_edit_button_element.click();
         cancel_item_button_element.click();
         for(WebElement checkbox : checkboxes){
