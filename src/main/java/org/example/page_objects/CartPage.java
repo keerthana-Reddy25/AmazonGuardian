@@ -42,7 +42,7 @@ public class CartPage extends AbstractComponent {
             checkout_button.click();
         }
         catch(StaleElementReferenceException e){
-           // driver.navigate().refresh();
+
             wait_for_element_to_be_appear(checkout_button);
             checkout_button.click();
         }
