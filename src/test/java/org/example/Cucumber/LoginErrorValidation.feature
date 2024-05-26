@@ -2,11 +2,11 @@
 Feature:Error validation
 
   @ErrorValidation
-  Scenario Outline: Negative test of user login with invalid credentials
-    Given I landed on E-commerce Page
+  Scenario Outline: Negative test of user login with invalid Password
+    Given I landed on Amazon Login Page
     When Logged in with username <email> and password <password>
-    Then "Incorrect email or password." message is displayed
+    Then "Your password is incorrect" message is displayed
 
     Examples:
       |email                  |password              |
-      |keerthanareddy2506@gmail.com    |KeerthiReddy@25  |
+      |keerthanareddy2506@gmail.com    |KeerthiReddy@125  |
