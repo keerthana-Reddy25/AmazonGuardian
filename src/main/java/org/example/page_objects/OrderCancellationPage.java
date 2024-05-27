@@ -21,16 +21,22 @@ public class OrderCancellationPage extends AbstractComponent {
 
     @FindBy(id = "nav-orders")
     WebElement orders_link_element;
+
     @FindBy(linkText = "View or edit order")
     WebElement view_or_edit_button_element;
+
     @FindBy(linkText = "Cancel items")
     WebElement cancel_item_button_element;
+
     @FindBy(xpath = "//input[contains(@name, 'cq.cancelItem')]")
     List<WebElement> checkboxes;
+
     @FindBy(name = "cancel.reason")
     WebElement static_drop_down;
+
     @FindBy(name = "cq.submit")
     WebElement cancel_order_button_element;
+
     @FindBy(className = "a-alert-heading")
     WebElement cancel_msg_element;
 

@@ -6,7 +6,7 @@
       Given Logged in with userEmail <email> and password <password>
       When I want to add the products <products> to the cart
       And I want to checkout the products <products> and check username "Keerthana chilakala" , "Order placed, thanks!" message is displayed upon placing the order
-      Then I want to cancel the placed order and "This order has been cancelled." message is diplayed upon cancellation
+      Then I want to cancel the placed order and "This order has been cancelled." message is displayed upon cancellation
 
       Examples:
       |email                          |password              |products|

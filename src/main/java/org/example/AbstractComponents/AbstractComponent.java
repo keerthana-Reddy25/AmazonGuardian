@@ -1,6 +1,7 @@
 package org.example.AbstractComponents;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,5 +24,14 @@ public class AbstractComponent {
     public static void wait_for_element_to_be_appear(WebElement webelement){
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(90) );
             wait.until(ExpectedConditions.visibilityOf(webelement));
+    }
+    public static void javascript_click(WebElement webelement){
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("arguments[0].click();", webelement);
+    }
+
+    public static void scroll_to_the_element(WebElement webelement){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", webelement);
+
     }
 }

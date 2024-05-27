@@ -16,42 +16,47 @@ public class CartPage extends AbstractComponent {
     @FindBy(id = "nav-cart-count-container")
     WebElement cart_icon;
     By cart_icon_wait = By.id("nav-cart-count-container");
+
     @FindBy(id = "sc-subtotal-label-buybox")
     WebElement cart_count_text;
+
+    //first proceed to checkout button
     @FindBy(xpath = "//input[@name='proceedToRetailCheckout']")
     WebElement proceed_to_checkout_button;
-    @FindBy(xpath = "//span[@class='a-button-inner']")
-    WebElement checkout_button;
+
     @FindBy(xpath = "//li[@class='displayAddressLI displayAddressFullName']")
     WebElement username_element;
-    @FindBy(xpath = "//input[@aria-labelledby='submitOrderButtonId-announce']")
-    WebElement submit_button;
+///submitOrderButtonId
+    //xpath = "//span[@class='a-button-inner']"
+    @FindBy(id = "submitOrderButtonId")
+    WebElement placeOrder_button;
+
+
+
+
+
     @FindBy(className = "a-alert-heading")
     WebElement confirmation_text_element;
 
     public OrderCancellationPage submit_order(int products_count, String expected_username, String expected_confirmation_text){
 
         AbstractComponent.element_tobe_clickable(cart_icon_wait);
-
         cart_icon.click();
+
         String cart_count = cart_count_text.getText();
         if(cart_count.contains(String.valueOf(products_count))){
                 proceed_to_checkout_button.click();
         }
-        try{
-            checkout_button.click();
-        }
-        catch(StaleElementReferenceException e){
 
-            wait_for_element_to_be_appear(checkout_button);
-            checkout_button.click();
-        }
 
         //username check
 
         String actual_username = username_element.getText();
         if(actual_username.equals(expected_username)){
-            submit_button.click();
+           username_element.click();
+           AbstractComponent.wait_for_element_to_be_appear(placeOrder_button);
+            placeOrder_button.click();
+
         }
         //confirmation message check
         String actual_confirmation_text = confirmation_text_element.getText();
