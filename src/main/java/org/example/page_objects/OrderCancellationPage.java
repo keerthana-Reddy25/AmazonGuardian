@@ -21,7 +21,6 @@ public class OrderCancellationPage extends AbstractComponent {
 
     @FindBy(id = "nav-orders")
     WebElement orders_link_element;
-
     @FindBy(linkText = "View or edit order")
     WebElement view_or_edit_button_element;
 
